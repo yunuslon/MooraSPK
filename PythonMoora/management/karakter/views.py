@@ -4,9 +4,10 @@ from django.http import HttpResponse
 from django.contrib import messages
 from orm.models import Karakter, Siswa
 from .forms import KarakterForm
+from library.view import ManagementAccessView
 # Create your views here.
 
-class ListKarakterView(View):
+class ListKarakterView(ManagementAccessView):
     def get(self, request):
         template = 'karakter/index.html'
         karakter = Karakter.objects.all()
@@ -19,7 +20,7 @@ class ListKarakterView(View):
         return render(request, template, data)
 
 
-class SaveKarakterView(View):
+class SaveKarakterView(ManagementAccessView):
     def post(self, request):
         template = 'karakter/index.html'
         form = KarakterForm(request.POST or None)
@@ -43,7 +44,7 @@ class SaveKarakterView(View):
             return render(request, template, data)
 
 
-class EditKarakterView(View):
+class EditKarakterView(ManagementAccessView):
     template = 'karakter/edit.html'
 
     def get(self, request, id):
@@ -71,7 +72,7 @@ class EditKarakterView(View):
         return render(request, self.template, data)
 
 
-class UpdateKarakterView(View):
+class UpdateKarakterView(ManagementAccessView):
 
     def post(self, request):
         
@@ -100,7 +101,7 @@ class UpdateKarakterView(View):
 
 
 
-class HapusKarakterView(View):
+class HapusKarakterView(ManagementAccessView):
     
     def get(self, request, id):
         karakter = Karakter.objects.filter(id=id)

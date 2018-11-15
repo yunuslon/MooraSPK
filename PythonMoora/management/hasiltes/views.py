@@ -4,9 +4,10 @@ from django.http import HttpResponse
 from django.contrib import messages
 from orm.models import HasilTes,Siswa
 from .forms import HasilTesForm
+from library.view import ManagementAccessView
 # Create your views here.
 
-class ListHasilTesView(View):
+class ListHasilTesView(ManagementAccessView):
 	def get(self, request):
 		template = 'hasiltes/index.html'
 		form = HasilTesForm(request.POST or None)
@@ -20,7 +21,7 @@ class ListHasilTesView(View):
 		return render(request, template, data)
 
 
-class SaveHasilTesView(View):
+class SaveHasilTesView(ManagementAccessView):
     def post(self, request):
         template = 'hasiltes/index.html'
         form = HasilTesForm(request.POST or None)
@@ -45,7 +46,7 @@ class SaveHasilTesView(View):
             return render(request, template, data)
 
 
-class EditHasilTesView(View):
+class EditHasilTesView(ManagementAccessView):
     template = 'hasiltes/edit.html'
 
     def get(self, request, id):
@@ -73,7 +74,7 @@ class EditHasilTesView(View):
 
 
 
-class UpdateHasilTesView(View):
+class UpdateHasilTesView(ManagementAccessView):
 
     def post(self, request):
         
@@ -99,7 +100,7 @@ class UpdateHasilTesView(View):
             # return render(request, template, data)
             return HttpResponse(form.errors)
 
-class HapusHasilTesView(View):
+class HapusHasilTesView(ManagementAccessView):
 
     def get(self, request, id):
         hasiltes = HasilTes.objects.filter(id=id)

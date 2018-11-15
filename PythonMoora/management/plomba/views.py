@@ -5,9 +5,10 @@ from django.contrib import messages
 from orm.models import Plomba,Siswa
 from management.plomba import helpers
 from .forms import PlombaForm
+from library.view import ManagementAccessView
 # Create your views here.
 
-class ListPlombaView(View):
+class ListPlombaView(ManagementAccessView):
 	def get(self, request):
 		template = 'plomba/index.html'
 		form = PlombaForm(request.POST or None)
@@ -21,7 +22,7 @@ class ListPlombaView(View):
 		return render(request, template, data)
 
 
-class SavePlombaView(View):
+class SavePlombaView(ManagementAccessView):
     def post(self, request):
         template = 'plomba/index.html'
         form = PlombaForm(request.POST or None)
@@ -47,7 +48,7 @@ class SavePlombaView(View):
             return render(request, template, data)
 
 
-class EditPlombaView(View):
+class EditPlombaView(ManagementAccessView):
     template = 'plomba/edit.html'
 
     def get(self, request, id):
@@ -76,7 +77,7 @@ class EditPlombaView(View):
 
 
 
-class UpdatePlombaView(View):
+class UpdatePlombaView(ManagementAccessView):
 
     def post(self, request):
         
@@ -103,7 +104,7 @@ class UpdatePlombaView(View):
             # return render(request, template, data)
             return HttpResponse(form.errors)
 
-class HapusPlombaView(View):
+class HapusPlombaView(ManagementAccessView):
 
     def get(self, request, id):
         plomba = Plomba.objects.filter(id=id)

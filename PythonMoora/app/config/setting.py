@@ -25,6 +25,8 @@ PROJECT_APPS = [
     'tesolimpiade',
     'soalbiologi',
     'soalfisika',
+    'soalkimia',
+    'soalmatematika',
     'library',
 
 

@@ -4,9 +4,10 @@ from django.http import HttpResponse
 from django.contrib import messages
 from orm.models import NilaiAkademik,Siswa
 from .forms import NilaiAkdemikForm
+from library.view import ManagementAccessView
 # Create your views here.
 
-class ListNilaiAkademikView(View):
+class ListNilaiAkademikView(ManagementAccessView):
     def get(self, request):
         template = 'nilai_akademik/index.html'
 
@@ -20,7 +21,7 @@ class ListNilaiAkademikView(View):
         return render(request, template, data)
 
 
-class SaveNilaiAkademikView(View):
+class SaveNilaiAkademikView(ManagementAccessView):
     def post(self, request):
         template = 'nilai_akademik/index.html'
         form = NilaiAkdemikForm(request.POST or None)
@@ -43,7 +44,7 @@ class SaveNilaiAkademikView(View):
             return render(request, template, data)
 
 
-class EditNilaiAkademikView(View):
+class EditNilaiAkademikView(ManagementAccessView):
     template = 'nilai_akademik/edit.html'
 
     def get(self, request, id):
@@ -70,7 +71,7 @@ class EditNilaiAkademikView(View):
         return render(request, self.template, data)
 
 
-class UpdateNilaiAkademikView(View):
+class UpdateNilaiAkademikView(ManagementAccessView):
 
     def post(self, request):
         
@@ -98,7 +99,7 @@ class UpdateNilaiAkademikView(View):
 
 
 
-class HapusNilaiAkademikView(View):
+class HapusNilaiAkademikView(ManagementAccessView):
     
     def get(self, request, id):
         nilaiakademik = NilaiAkademik.objects.filter(id=id)

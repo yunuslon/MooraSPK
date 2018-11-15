@@ -40,6 +40,8 @@ urlpatterns = [
     url(r'^tesolimpiade/', include('tesolimpiade.urls', namespace='tesolimpiade')),
     url(r'^soalbiologi/', include('soalbiologi.urls', namespace='soalbiologi')),
     url(r'^soalfisika/', include('soalfisika.urls', namespace='soalfisika')),
+    url(r'^soalkimia/', include('soalkimia.urls', namespace='soalkimia')),
+    url(r'^soalmatematika/', include('soalmatematika.urls', namespace='soalmatematika')),
 
 
 ]

@@ -6,17 +6,18 @@ from orm.models import Karakter,NilaiAkademik,HasilTes,Siswa,Plomba,Kelas
 from management.hasil_akhir import helpers
 from reportlab.pdfgen import canvas
 from django.template.loader import get_template
+from library.view import ManagementAccessView
 
 # Create your views here.
 
 
-class ListMataPelajaranView(View):
+class ListMataPelajaranView(ManagementAccessView):
     def get(self, request):
         template = 'hasil_akhir/index.html'
      
         return render(request, template)
 
-class ListBiologiView(View):
+class ListBiologiView(ManagementAccessView):
     def get(self, request):
         template = 'hasil_akhir/biologi.html'
         sw = Siswa.objects.all()
@@ -30,7 +31,7 @@ class ListBiologiView(View):
         }
         return render(request, template, data)
 
-class ListFisikaView(View):
+class ListFisikaView(ManagementAccessView):
     def get(self, request):
         template = 'hasil_akhir/fisika.html'
         sw = Siswa.objects.all()
@@ -44,7 +45,7 @@ class ListFisikaView(View):
         }
         return render(request, template, data)
 
-class ListKimiaView(View):
+class ListKimiaView(ManagementAccessView):
     def get(self, request):
         template = 'hasil_akhir/kimia.html'
         sw = Siswa.objects.all()
@@ -53,12 +54,12 @@ class ListKimiaView(View):
             'data_awal' : nl,
             'ternormalisasi': helpers.Matrix_TernormalisasiKim(sw).as_matrix(),
             'pembobotan': helpers.Matrix_PembobotanKim(sw).as_matrix(),
-            'akhir': helpers.Hasil_Akhirkim(sw).as_matrix(),
+            'akhir': helpers.Hasil_AkhirKim(sw).as_matrix(),
 
         }
         return render(request, template, data)
 
-class ListMatematikaView(View):
+class ListMatematikaView(ManagementAccessView):
     def get(self, request):
         template = 'hasil_akhir/matematika.html'
         sw = Siswa.objects.all()

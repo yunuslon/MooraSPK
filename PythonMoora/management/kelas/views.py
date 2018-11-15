@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 from orm.models import Kelas,Siswa,User
 from management.kelas.forms import KelasForm
+from library.view import ManagementAccessView
 # from django.contrib.auth.models import User
 
 
@@ -11,7 +12,7 @@ from management.kelas.forms import KelasForm
 
 
 
-class ListKelasView(View):
+class ListKelasView(ManagementAccessView):
 	def get(self, request):
 
 		template = 'kelas/index.html'
@@ -27,7 +28,7 @@ class ListKelasView(View):
 		return render(request, template, data)
 
 
-class SaveKelasView(View):
+class SaveKelasView(ManagementAccessView):
     def post(self, request):
         template = 'kelas/index.html'
         form = KelasForm(request.POST or None)
@@ -53,7 +54,7 @@ class SaveKelasView(View):
             return render(request, template, data)
 
 
-class EditKelasView(View):
+class EditKelasView(ManagementAccessView):
     template = 'kelas/edit.html'
 
     def get(self, request, id):
@@ -82,7 +83,7 @@ class EditKelasView(View):
 
 
 
-class UpdateKelasView(View):
+class UpdateKelasView(ManagementAccessView):
 
     def post(self, request):
         
@@ -109,7 +110,7 @@ class UpdateKelasView(View):
             # return render(request, template, data)
             return HttpResponse(form.errors)
 
-class HapusKelasView(View):
+class HapusKelasView(ManagementAccessView):
 
     def get(self, request, id):
         kelas = Kelas.objects.filter(id=id)

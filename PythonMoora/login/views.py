@@ -56,12 +56,12 @@ class DoLoginView(View):
                 elif authcheck.AuthCheck.isSoalFis(user):
                     login(request, user)
                     return redirect('soalfisika:view') 
-                # elif authcheck.AuthCheck.isSoalKim(user):
-                #     login(request, user)
-                #     return redirect('soalkimia:view') 
-                # elif authcheck.AuthCheck.isSoalMat(user):
-                #     login(request, user)
-                #     return redirect('soalmatematika:view') 
+                elif authcheck.AuthCheck.isSoalKim(user):
+                    login(request, user)
+                    return redirect('soalkimia:view') 
+                elif authcheck.AuthCheck.isSoalMat(user):
+                    login(request, user)
+                    return redirect('soalmatematika:view') 
                 else:
                      messages.add_message(request, messages.WARNING,
                                  'Akun Belum Terdaftar Sebagai User !!')

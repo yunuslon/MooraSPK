@@ -4,10 +4,11 @@ from django.http import HttpResponse
 from django.contrib import messages
 from orm.models import Bobot
 from management.bobot.forms import BobotForm
+from library.view import ManagementAccessView
 # Create your views here.
 
 
-class ListBobotView(View):
+class ListBobotView(ManagementAccessView):
 	def get(self, request):
 
 		template = 'bobot/index.html'
@@ -21,7 +22,7 @@ class ListBobotView(View):
 		}
 		return render(request, template, data)
 
-class EditBobotView(View):
+class EditBobotView(ManagementAccessView):
     template = 'bobot/index.html'
 
     def get(self, request, id):
@@ -51,7 +52,7 @@ class EditBobotView(View):
 
 
 
-class UpdateBobotView(View):
+class UpdateBobotView(ManagementAccessView):
 
     def post(self, request):
         
