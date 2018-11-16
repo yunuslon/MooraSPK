@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from soalbiologi import views
+from soal.soalbiologi import views
 
 urlpatterns = [
 	url (r'^$', views.ListSoalBiologiView.as_view(), name='view'),

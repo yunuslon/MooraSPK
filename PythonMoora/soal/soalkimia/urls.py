@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from soalkimia import views
+from soal.soalkimia import views
 
 urlpatterns = [
 	url (r'^$', views.ListSoalKimiaView.as_view(), name='view'),

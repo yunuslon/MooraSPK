@@ -38,10 +38,10 @@ urlpatterns = [
     url(r'^plomba/', include('management.plomba.urls', namespace='plomba')),
     url(r'^hasil_akhir/', include('management.hasil_akhir.urls', namespace='hasil_akhir')),
     url(r'^tesolimpiade/', include('tesolimpiade.urls', namespace='tesolimpiade')),
-    url(r'^soalbiologi/', include('soalbiologi.urls', namespace='soalbiologi')),
-    url(r'^soalfisika/', include('soalfisika.urls', namespace='soalfisika')),
-    url(r'^soalkimia/', include('soalkimia.urls', namespace='soalkimia')),
-    url(r'^soalmatematika/', include('soalmatematika.urls', namespace='soalmatematika')),
+    url(r'^soalbiologi/', include('soal.soalbiologi.urls', namespace='soalbiologi')),
+    url(r'^soalfisika/', include('soal.soalfisika.urls', namespace='soalfisika')),
+    url(r'^soalkimia/', include('soal.soalkimia.urls', namespace='soalkimia')),
+    url(r'^soalmatematika/', include('soal.soalmatematika.urls', namespace='soalmatematika')),
 
 
 ]

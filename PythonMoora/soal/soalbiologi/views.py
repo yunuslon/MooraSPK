@@ -2,20 +2,20 @@ from django.shortcuts import render, redirect, get_list_or_404
 from django.views.generic import View
 from django.http import HttpResponse
 from django.contrib import messages
-from orm.models import TesOlimpiade,HasilTes
-from soalmatematika import helpers
-from soalmatematika.forms import HasilTesForm
-from library.view import SoalMatAccessView
+from orm.models import SoalBiologi,TesOlimpiade,HasilTes
+from soal.soalbiologi import helpers
+from soal.soalbiologi.forms import HasilTesForm
+from library.view import SoalBioAccessView
 
 
 
-class ListSoalMatematikaView(SoalMatAccessView):
-    template_name = 'soalmatematika/index.html'
+class ListSoalBiologiView(SoalBioAccessView):
+    template_name = 'soalbiologi/index.html'
       
 
     def get(self, request):
         tp = TesOlimpiade.objects.all()
-        tesolimpiade = helpers.SleksiSoalMat(tp).as_matrix()
+        tesolimpiade = helpers.SleksiSoalBio(tp).as_matrix()
        
         data = {
         'tesolimpiade2' : tesolimpiade,
@@ -29,8 +29,8 @@ class ListSoalMatematikaView(SoalMatAccessView):
 
         return render(request, self.template_name, data)
 
-class SimpanHasilTesMatView(SoalMatAccessView):
-    template_name = 'soalkimia/index.html'
+class SimpanHasilTesBioView(SoalBioAccessView):
+    template_name = 'soalbiologi/index.html'
 
     def post(self, request):
         form = HasilTesForm(request.POST or None)
@@ -44,4 +44,4 @@ class SimpanHasilTesMatView(SoalMatAccessView):
 
             messages.add_message(request, messages.SUCCESS,
                                  'Simpan  nilai berhasil')
-        return redirect('/soalkimia/')
+        return redirect('/soalbiologi/')

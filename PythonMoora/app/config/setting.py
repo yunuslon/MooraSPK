@@ -23,10 +23,10 @@ PROJECT_APPS = [
     'management.bobot',
     'login',
     'tesolimpiade',
-    'soalbiologi',
-    'soalfisika',
-    'soalkimia',
-    'soalmatematika',
+    'soal.soalbiologi',
+    'soal.soalfisika',
+    'soal.soalkimia',
+    'soal.soalmatematika',
     'library',
 
 
