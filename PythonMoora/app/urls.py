@@ -42,6 +42,7 @@ urlpatterns = [
     url(r'^soalfisika/', include('soal.soalfisika.urls', namespace='soalfisika')),
     url(r'^soalkimia/', include('soal.soalkimia.urls', namespace='soalkimia')),
     url(r'^soalmatematika/', include('soal.soalmatematika.urls', namespace='soalmatematika')),
+    url(r'^daftar_olimpiade/', include('soal.daftar_olimpiade.urls', namespace='daftar_olimpiade')),
 
 
 ]

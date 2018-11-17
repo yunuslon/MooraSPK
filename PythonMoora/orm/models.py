@@ -21,7 +21,7 @@ class Siswa(models.Model):
         default=Laki,
     )
     alamat = models.TextField(blank=True, null=True)
-    tanggal_lahir = models.DateField(auto_now=False, auto_now_add=False)
+   
 
     def __str__(self):
         return self.nama

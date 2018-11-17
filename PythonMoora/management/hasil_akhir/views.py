@@ -81,7 +81,7 @@ class GeneratePDFtbl(View):
     def get(self, request, *args, **kwargs):
         template = get_template('hasil_akhir/reporttbl.html')
         sw = Siswa.objects.all()
-        nl = helpers.Matrix_TernormalisasiBio().as_matrix()
+        nl = helpers.Matrix_TernormalisasiBio(sw).as_matrix()
         data = {
             'nl' : nl,
         }
@@ -93,7 +93,7 @@ class GeneratePDFnilai_awal(View):
     def get(self, request, *args, **kwargs):
         template = get_template('hasil_akhir/reportnilai_awal.html')
         sw = Siswa.objects.all()
-        nl = helpers.Matrix_DataAwalBio().as_matrix()
+        nl = helpers.Matrix_DataAwalBio(sw).as_matrix()
         data = {
             'nl' : nl,
         }
@@ -105,7 +105,7 @@ class GeneratePDFpembobotan(View):
     def get(self, request, *args, **kwargs):
         template = get_template('hasil_akhir/report_pembobotan.html')
         sw = Siswa.objects.all()
-        nl = helpers.Matrix_PembobotanBio().as_matrix()
+        nl = helpers.Matrix_PembobotanBio(sw).as_matrix()
         data = {
             'nl' : nl,
         }
@@ -117,7 +117,7 @@ class GeneratePDFrangking(View):
     def get(self, request, *args, **kwargs):
         template = get_template('hasil_akhir/report_rangking.html')
         sw = Siswa.objects.all()
-        nl = helpers.Hasil_AkhirBio().as_matrix()
+        nl = helpers.Hasil_AkhirBio(sw).as_matrix()
         data = {
             'nl' : nl,
         }

@@ -32,7 +32,6 @@ class SaveSiswaView(ManagementAccessView):
             siswa = Siswa()
             siswa.user = form.cleaned_data['user']
             siswa.nama = form.cleaned_data['nama']
-            siswa.tanggal_lahir = form.cleaned_data['tanggal_lahir']
             siswa.jenis_kelamin = form.cleaned_data['jenis_kelamin']
             siswa.alamat = form.cleaned_data['alamat']
             messages.add_message(request, messages.INFO, 'Data Berhasil Disimpan')   
@@ -61,7 +60,6 @@ class EditSiswaView(ManagementAccessView):
 
             'id': siswa.id,
             'nama': siswa.nama,
-            'tanggal_lahir': siswa.tanggal_lahir,
             'jenis_kelamin': siswa.jenis_kelamin,
             'alamat': siswa.alamat,
             'user': siswa.user,
@@ -90,7 +88,6 @@ class UpdateSiswaView(ManagementAccessView):
             siswa = Siswa.objects.get(pk=id)
             siswa.user = form.cleaned_data['user']
             siswa.nama = form.cleaned_data['nama']
-            siswa.tanggal_lahir = form.cleaned_data['tanggal_lahir']
             siswa.jenis_kelamin = form.cleaned_data['jenis_kelamin']
             siswa.alamat = form.cleaned_data['alamat']
             messages.add_message(request, messages.INFO, 'Data Berhasil Diupdate')               
@@ -112,7 +109,7 @@ class HapusSiswaView(ManagementAccessView):
     def get(self, request, id):
         siswa = Siswa.objects.filter(id=id)
         if siswa.exists():
-            Siswa.first().delete()
+            siswa.first().delete()
             messages.add_message(request, messages.INFO, 'Data Berhasil Dihapus')                                       
             return redirect('siswa:view')
         else:

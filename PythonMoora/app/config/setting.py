@@ -27,6 +27,7 @@ PROJECT_APPS = [
     'soal.soalfisika',
     'soal.soalkimia',
     'soal.soalmatematika',
+    'soal.daftar_olimpiade',
     'library',
 
 

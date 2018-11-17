@@ -33,7 +33,7 @@
                   
                   <div class="box-body">
                     <div class="form-group" >
-                      <label for="exampleInputEmail1" class="control-label">User</label>
+                      <label for="exampleInputEmail1" class="control-label"> User</label>
                       {{form.user | add_class:"form-control"| append_attr:"readonly"}}
                     </div>
                   </div>
@@ -45,31 +45,23 @@
                     </div>
                   </div>
 
-                  <div class="input-group date">
-                    <label for="exampleInputEmail1" class="control-label">Nama Siswa</label>
-                    
-                    <div class="input-group-addon">
-                      <i class="fa fa-calendar"></i>
-                    </div>
-                    <!-- <input type="text" name="tanggal_lahir" class="form-control pull-right" id="datepicker"> -->
-                    {{form.tanggal_lahir | add_class:"form-control"| append_attr:"id:datepicker"}}
-
-                  </div>
-
-                  <div class="box-body">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1" class="control-label">Jenis Kelamin</label>
-                      <input type="radio" name = "jenis_kelamin"class="form-control pull-right" value="Laki - Laki" > Laki - Laki <br>
-                      <input type="radio" name="jenis_kelamin" class="form-control pull-right" value="Perempuan"> Perempuan
-                    </div>
-                  </div>
-                  
                   <div class="box-body">
                     <div class="form-group" >
-                      <label for="exampleInputEmail1" class="control-label">Alamat/label>
+                      <label for="exampleInputEmail1" class="control-label">Jenis kelamin</label>
+                      <select class="form-control " name="jenis_kelamin"  >
+                        <option value="Laki - Laki">Laki - Laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="box-body">
+                    <div class="form-group" >
+                      <label for="exampleInputEmail1" class="control-label">Alamat</label>
                       {{form.alamat | add_class:"form-control"}}
                     </div>
                   </div>
+
                   
 
                   <!-- /.box-body -->            

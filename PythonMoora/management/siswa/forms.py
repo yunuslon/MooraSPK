@@ -9,8 +9,6 @@ class SiswaForm(forms.Form):
     user = forms.ModelChoiceField(queryset=user_all, initial=0)
     nama = forms.CharField(max_length=30)
     jenis_kelamin = forms.CharField(max_length=30)
-    tanggal_lahir = forms.DateField(
-        widget=forms.widgets.DateInput(format="%m/%d/%Y"))
     alamat = forms.CharField(max_length=70)
     
         

@@ -1,6 +1,6 @@
 <header class="main-header">
   <!-- Logo -->
-  <a href="../../index2.html" class="logo">
+  <a href="#" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><b>SPK</b></span>
     <!-- logo for regular state and mobile devices -->
@@ -11,12 +11,16 @@
     <!-- Sidebar toggle button-->
     <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
       <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
+      
     </a>
+    <ul class="nav navbar-nav">
+      <li ><a href="{% url 'daftar_olimpiade:view' %}"><b> Daftar User </b></a></li>
+      
+
+    </ul>
 
     <div class="navbar-custom-menu">
+
       <ul class="nav navbar-nav">
         <li>
           <a href="{% url 'login:doLogout'%}">
@@ -26,5 +30,5 @@
         </li>
       </ul>
     </div>
-</nav>
+  </nav>
 </header>
