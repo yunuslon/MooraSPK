@@ -34,7 +34,7 @@ def SleksiSoalMat(tp):
     def no():
         tmp=[]
         for i in range(len(c)):
-            if tmpA[i][0] == "kimia":
+            if tmpA[i][0] == "matematika":
                 tmp.append(tmpA[i][1])
         df=pd.DataFrame(data=tmp, columns=['No'])
         return df
@@ -42,7 +42,7 @@ def SleksiSoalMat(tp):
     def gambar():
         tmp=[]
         for i in range(len(c)):
-            if tmpA[i][0] == "kimia":
+            if tmpA[i][0] == "matematika":
                 tmp.append(tmpA[i][2])
         df=pd.DataFrame(data=tmp, columns=['Gambar'])
         return df
@@ -50,7 +50,7 @@ def SleksiSoalMat(tp):
     def pertayaan():
         tmp=[]
         for i in range(len(c)):
-            if tmpA[i][0] == "kimia":
+            if tmpA[i][0] == "matematika":
                 tmp.append(tmpA[i][3])
         df=pd.DataFrame(data=tmp, columns=['Pertayaan'])
         return df
@@ -58,7 +58,7 @@ def SleksiSoalMat(tp):
     def jawabanA():
         tmp=[]
         for i in range(len(c)):
-            if tmpA[i][0] == "kimia":
+            if tmpA[i][0] == "matematika":
                 tmp.append(tmpA[i][4])
         df=pd.DataFrame(data=tmp, columns=['JawabanA'])
         return df
@@ -66,7 +66,7 @@ def SleksiSoalMat(tp):
     def jawabanB():
         tmp=[]
         for i in range(len(c)):
-            if tmpA[i][0] == "kimia":
+            if tmpA[i][0] == "matematika":
                 tmp.append(tmpA[i][5])
         df=pd.DataFrame(data=tmp, columns=['JawabanB'])
         return df
@@ -74,7 +74,7 @@ def SleksiSoalMat(tp):
     def jawabanC():
         tmp=[]
         for i in range(len(c)):
-            if tmpA[i][0] == "kimia":
+            if tmpA[i][0] == "matematika":
                 tmp.append(tmpA[i][6])
         df=pd.DataFrame(data=tmp, columns=['JawabanC'])
         return df
@@ -82,7 +82,7 @@ def SleksiSoalMat(tp):
     def jawabanD():
         tmp=[]
         for i in range(len(c)):
-            if tmpA[i][0] == "kimia":
+            if tmpA[i][0] == "matematika":
                 tmp.append(tmpA[i][7])
         df=pd.DataFrame(data=tmp, columns=['JawabanD'])
         return df
@@ -90,7 +90,7 @@ def SleksiSoalMat(tp):
     def jawabanE():
         tmp=[]
         for i in range(len(c)):
-            if tmpA[i][0] == "kimia":
+            if tmpA[i][0] == "matematika":
                 tmp.append(tmpA[i][8])
         df=pd.DataFrame(data=tmp, columns=['JawabanE'])
         return df
@@ -98,7 +98,7 @@ def SleksiSoalMat(tp):
     def kunci():
         tmp=[]
         for i in range(len(c)):
-            if tmpA[i][0] == "kimia":
+            if tmpA[i][0] == "matematika":
                 tmp.append(tmpA[i][9])
         df=pd.DataFrame(data=tmp, columns=['Kunci'])
         return df

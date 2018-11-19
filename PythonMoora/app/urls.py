@@ -37,12 +37,13 @@ urlpatterns = [
     url(r'^karakter/', include('management.karakter.urls', namespace='karakter')),
     url(r'^plomba/', include('management.plomba.urls', namespace='plomba')),
     url(r'^hasil_akhir/', include('management.hasil_akhir.urls', namespace='hasil_akhir')),
-    url(r'^tesolimpiade/', include('tesolimpiade.urls', namespace='tesolimpiade')),
     url(r'^soalbiologi/', include('soal.soalbiologi.urls', namespace='soalbiologi')),
     url(r'^soalfisika/', include('soal.soalfisika.urls', namespace='soalfisika')),
     url(r'^soalkimia/', include('soal.soalkimia.urls', namespace='soalkimia')),
     url(r'^soalmatematika/', include('soal.soalmatematika.urls', namespace='soalmatematika')),
     url(r'^daftar_olimpiade/', include('soal.daftar_olimpiade.urls', namespace='daftar_olimpiade')),
+    url(r'^tesolimpiade/', include('soal.tesolimpiade.urls', namespace='tesolimpiade')),
+    
 
 
 ]

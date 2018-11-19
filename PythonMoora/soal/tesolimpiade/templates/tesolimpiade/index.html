@@ -1,0 +1,64 @@
+{% extends 'layout/dashboard/index.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<div class="content-wrapper">
+  <section class="content-header">
+    <h1>
+      Bobot
+      <small>Template</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i>Data Soal Biologi</a></li>
+      <li class="active">Template</li>
+
+    </ol>
+  </section>
+  <section class="content">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="box">
+          <div class="box-body">
+            <div class="box-header">
+              <h3 class="box-title">Data Soal Biologi</h3>&nbsp;
+            </div>
+            <table id="example1" class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>No soal</th>
+                  <th>src.gambar</th>
+                  <th>Soal</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for sb in soalbio %}
+                <tr>
+                  <td>{{sb.0}}</td>
+                  <td>{{sb.1}}</td>
+                  <td>{{sb.2}}</td>
+                  <td>{{sb.3}}</td>
+           
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</div>
+</div>
+
+</section>  
+</div>
+{% if messages %} {% for message in messages %}
+<script>
+  toastr.success('{{message}}')
+</script>
+{% endfor %} {% endif %}
+
+<script type="text/javascript">
+  $('#example1').DataTable();
+</script>
+{% endblock %}

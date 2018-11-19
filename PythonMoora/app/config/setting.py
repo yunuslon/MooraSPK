@@ -22,14 +22,13 @@ PROJECT_APPS = [
     'management.hasil_akhir',
     'management.bobot',
     'login',
-    'tesolimpiade',
     'soal.soalbiologi',
     'soal.soalfisika',
     'soal.soalkimia',
     'soal.soalmatematika',
     'soal.daftar_olimpiade',
     'library',
-
+    'soal.tesolimpiade',
 
 
     
