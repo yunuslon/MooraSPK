@@ -1,24 +1,24 @@
 from django import forms
-from orm.models import Tesolimpiade
+from orm.models import TesOlimpiade
 # from django.contrib.auth.models import User
 
 
-class TesolimpiadeForm(forms.Form):
+class TesOlimpiadeForm(forms.Form):
     id = forms.CharField(required=False, widget=forms.HiddenInput())
-    jenjang = forms.CharField(max_length=30)
-    no = forms.IntegerField( required=False, initial=0)
-    gambar = forms.forms.CharField(max_length=30)
+    mata_pelajaran = forms.CharField( max_length=30)
+    no = forms.IntegerField(required=False, initial=0)
+    gambar = forms.ImageField(required=False, initial="gambar/icon.png")
     pertayaan = forms.CharField( max_length=500)
-    jawbanA = forms.CharField( max_length=300)
-    jawbanB = forms.CharField( max_length=300)
-    jawbanC = forms.CharField( max_length=300)
-    jawbanD = forms.CharField( max_length=300)
-    jawbanE = forms.CharField( max_length=300)
+    jawabanA = forms.CharField( max_length=300)
+    jawabanB = forms.CharField( max_length=300)
+    jawabanC = forms.CharField( max_length=300)
+    jawabanD = forms.CharField( max_length=300)
+    jawabanE = forms.CharField( max_length=300)
     kunci = forms.CharField( max_length=30)
 
     
     # user = forms.CharField(User, initial=0)
     class Meta:
-        model = Tesolimpiade
+        model = TesOlimpiade
 
 

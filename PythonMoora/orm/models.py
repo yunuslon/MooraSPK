@@ -187,11 +187,11 @@ class TesOlimpiade(models.Model):
     )
 
     no = models.IntegerField(default=0)
-    gambar = models.ImageField(upload_to="gambar",
+    gambar = models.ImageField(upload_to=FileUploader.file_foto,
                              null=True,
                              blank=True,
                              help_text="Upload Foto Soal Anda",
-                             default="../media/gambar/a.png"
+                             default="../media/gambar/icon.png"
                              )
 
     pertayaan = models.TextField(blank=True, null=True)

@@ -1,13 +1,18 @@
 {% extends 'layout/dashboard/index.html' %}
+{% load staticfiles %}
 {% load widget_tweaks %}
-
 {% block content %}
 
 <div class="content-wrapper">
   <section class="content-header">
+    <div class="header text-center">
+      <h3 class="title">Data Soal Biologi</h3>
+      <p class="category">Kategori Soal Mata Pelajaran <a>Biologi</a></p>
+    </div>
     <h1>
-      Bobot
+      Data Soal Biologi
       <small>Template</small>
+        <a href="{% url 'tesolimpiade:addbio' %}" class="btn btn-info pull-right"><i class="fa fa-plus-square">  Tambah Data</i></a>
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i>Data Soal Biologi</a></li>
@@ -26,32 +31,68 @@
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>No soal</th>
-                  <th>src.gambar</th>
+                  <th width="50" >No soal</th>
                   <th>Soal</th>
+
+                  <th>Kunci</th>
+                  <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
                 {% for sb in soalbio %}
                 <tr>
-                  <td>{{sb.0}}</td>
-                  <td>{{sb.1}}</td>
-                  <td>{{sb.2}}</td>
-                  <td>{{sb.3}}</td>
-           
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
-</div>
+                  <td align="center">{{sb.no}}</td>
+                  <td>{{sb.pertayaan}}</td>
+                  <td align="center">{{sb.kunci}}</td>
+                  <td width="130">
+                  <a href="{% url 'tesolimpiade:editbio' sb.id %}" class="btn btn-warning">
+                   <i class="fa fa-edit"></i>
+                  </a>
+                   <a href="{% url 'tesolimpiade:detailbio' sb.id %}" class="btn btn-info">
+                   <i class="fa fa-eye"></i>
+                  </a>
+                  <button class="btn btn-danger" data-toggle="modal" data-target="#myModal{{sb.id}}">
+                    <i class="fa fa-trash"></i>
+                  </button>
 
-</div>
-</div>
+                  <!-- Modal -->
+                  <div class="modal fade" id="myModal{{sb.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog modal-md" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="myModalLabel">Konfirmasi Penghapusan</h4>
+                        </div>
+                        <div class="modal-body">
+                          Apakah anda yakin ingin menghapus soal <b>{{sb.pertayaan}}</b> dan id <b>{{sb.id}}</b>?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                          <a href="{% url 'tesolimpiade:hapusbio' id=sb.id %}" class="btn btn-danger">
+                            <i class="fa fa-trash"></i> Hapus
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Modal -->
+                </td>
+
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
 </section>  
 </div>
+
+
+
 {% if messages %} {% for message in messages %}
 <script>
   toastr.success('{{message}}')
