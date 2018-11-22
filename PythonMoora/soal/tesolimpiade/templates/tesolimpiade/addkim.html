@@ -3,13 +3,13 @@
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
-            Add Soal Olimpiade
+            Tambah Soal Olimpiade Kimia
             <small>Template</small>
         </h1>
         <ol class="breadcrumb">
             <li>
                 <a href="#">
-                    <i class="fa fa-dashboard"></i> Add Soal</a>
+                    <i class="fa fa-dashboard"></i> Tambah Soal Kimia</a>
             </li>
             <li class="active">Template</li>
         </ol>
@@ -20,7 +20,7 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        Add Soal
+                        Tambah Soal Kimia
                     </div>
                     <div class="box-body">
                        <div class="col-md-3 col-sm-3">
@@ -29,12 +29,12 @@
                     Upload Gambar Soal <i class="fa fa-upload"></i></button>
                 </div>
                         <div class="col-md-9 col-sm-9">
-                            <form action="{% url 'tesolimpiade:savebio' %}" method="POST" enctype="multipart/form-data">
+                            <form action="{% url 'tesolimpiade:savekim' %}" method="POST" enctype="multipart/form-data">
                                 {% csrf_token %}
 
                                 <div class="form-group" hidden>
                                     <label >Olimpiade</label>
-                                    <input type="text" required name="mata_pelajaran" value="biologi" class="form-control">
+                                    <input type="text" required name="mata_pelajaran" value="kimia" class="form-control">
                                 </div>
 
                                 <div class="form-group">
@@ -90,7 +90,7 @@
 
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-success pull-right" style="margin-left: 8px;">Simpan</button>
-                                    <a href="{% url 'tesolimpiade:view'%}" class="btn btn-danger pull-right">
+                                    <a href="{% url 'tesolimpiade:kimia'%}" class="btn btn-danger pull-right">
                                         <i class="fa fa-arrow-left"></i> Kembali</a>
                                 </div>
 
